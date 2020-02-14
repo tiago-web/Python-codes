@@ -1,0 +1,52 @@
+# This code function will be executed how many times the user wants
+def message(repeat):
+    for i in range(repeat):
+        print('Tiago')
+
+message(2)
+
+# This code function will be executed how many times the user wants but using recursion and it also prevents if the user
+# passes 0 as the argument
+def message(repeat):
+    if repeat == 0:
+        return
+    else:
+        print('Tiago')
+        message(repeat-1)
+message(2)
+
+
+# This code sums each item in the array using recursion
+def summ(alist, size=0):
+    if size == len(alist):
+        return 0
+    else:
+        return alist[size]+summ(alist, size+1)
+
+alist = [1,2,3,4,5,6,7,8,9]
+print('The sum is= ',summ(alist))
+
+
+# This code uses the sum function to get the total, and then gives the average by using the method len()
+def average(alist):
+    return summ(alist) / len(alist)
+
+print(average(alist))
+
+
+# This code separates each name and print them separately
+names = ['Hesam', 'Tiago', 'Alex', 'Jordan', 'Sergio']
+def print_names(namesList):
+    if len(namesList)==1:
+        name = namesList[0]
+        print('My name is ', name)
+    else:
+        mid=len(namesList)//2
+        first_half=namesList[:mid]
+        # print(first_half)
+        second_half=namesList[mid:]
+        # print(second_half)
+        print_names(first_half)
+        print_names(second_half)
+
+print_names(names)
