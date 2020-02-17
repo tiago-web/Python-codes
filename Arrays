@@ -1,0 +1,82 @@
+'''
+Author: Tiago Reis Espinola Soriano
+This program gets the total pints donated and displays
+the average pints, the highest
+and the lowest number of pints donated.
+'''
+
+
+# the main function
+def main():
+    endProgram = 'no'
+    #declare variables
+    #function calls
+    while endProgram == 'no':
+        pints = getPints()
+        totalPints = getTotal(pints)
+        averagePints = getAverage(totalPints)
+        highPints = getHigh(pints)
+        lowPints = getLow(pints)
+        displayInfo(averagePints, highPints, lowPints)
+
+
+        endProgram = input('Do you want to end program? (Enter no or yes): ')
+        while not (endProgram == 'yes' or endProgram == 'no'):
+            print('Please enter a yes or no')
+            endProgram = input('Do you want to end program? (Enter no or yes): ')
+    else:
+        print('The program has been ended. Thank you for using it.')
+
+
+# the getPints function
+def getPints():
+    counter = 0
+    pints = []
+    while counter < 7:
+        item = int(input('Enter pints collected: '))
+        pints.append(item)
+        counter += 1
+    return pints
+
+# the getTotal function
+def getTotal(pints):
+    counter = 0
+    totalPints = 0
+    while counter < 7:
+        totalPints = totalPints + pints[counter]
+        counter += 1
+    return totalPints
+
+# the getAverage function
+def getAverage(totalPints):
+    averagePints = totalPints / 7
+    return averagePints
+
+# the getHigh function
+def getHigh(pints):
+    highPints = pints[1]
+    counter = 1
+    while counter < 7:
+        if pints[counter] > highPints:
+            highPints = pints[counter]
+            return highPints
+        counter += 1
+
+# the getLow function
+def getLow(pints):
+    lowPints = pints[1]
+    counter = 1
+    while counter < 7:
+        if pints[counter] > lowPints:
+            lowPints = pints[counter]
+            return lowPints
+        counter += 1
+
+# the displayInfo function
+def displayInfo(averagePints, highPints, lowPints):
+    print(averagePints)
+    print(highPints)
+    print(lowPints)
+
+# calls main
+main()
